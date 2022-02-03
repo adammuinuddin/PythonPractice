@@ -66,7 +66,7 @@ for guess in range(6):
                 print("\n")
         else:
             print("The letter: ",userguess[i], " is NOT in the word")
-            
+            #TODO: Adam: Store the letter that is not in the word in a new list which we can check against
 
     '''
     #Checking if the user gets the right letter and the right placement
