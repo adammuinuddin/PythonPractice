@@ -19,21 +19,13 @@ print(wordlewordoftheday)
 #Checking letters and position
 #Checking letters
 def letter_check(letter, wod):
-    for i in range(5):
-        if letter == wod[i]:
-            return i
+    for j in range(5):
+        if letter == wod[j]:
+            if j == 0:
+                return True
+            else:
+                return j
     return False
-
-
-
-#Checking position
-def position_check(letter, letterposition, wod):
-    for i in range(5):  
-        if letter == wod[letterposition]:
-            return True
-        elif
-            if letterposition == wod[i]:
-                return True    
 
 
 
@@ -48,18 +40,32 @@ for guess in range(6):
         print("\n \nThis is your", guess+1,"rd out of 6 guesses")
     if guess > 2:
         print("\n \nThis is your", guess+1,"th out of 6 guesses")
+
     userguess = str(input("Type a 5 letter guess for the wordle word of the day: "))
+
     while len(userguess) != 5:
         print("Enter a valid guess")
         userguess = str(input("Enter your valid guess: "))
+    
     #Checking if the word is right
     if userguess == wordlewordoftheday:
         print("\nCongratulations you solved the wordle word of the day!")
         exit()
+    
     for i in range(5):
+        
         letterInWord = letter_check(userguess[i], wordlewordoftheday)
+        
         if  letterInWord != False:
-            position_check(userguess[i], letterInWord, wordlewordoftheday)
+
+            print("The letter: ",userguess[i], " is in the word")
+
+            if userguess[i] == wordlewordoftheday[i]:
+                print(" and it is in the correct place")
+            else:
+                print("\n")
+        else:
+            print("The letter: ",userguess[i], " is NOT in the word")
             
 
     '''
